@@ -33,6 +33,7 @@ sub ps_chrome {
 $SPEC{pause_chrome} = {
     v => 1.1,
     summary => "Pause (kill -STOP) Chrome",
+    description => $App::BrowserUtils::desc_pause,
     args => {
        %App::BrowserUtils::args_common,
     },
