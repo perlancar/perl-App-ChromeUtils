@@ -70,6 +70,26 @@ sub chrome_is_paused {
     App::BrowserUtils::_do_browser('is_paused', 'chrome', @_);
 }
 
+$SPEC{chrome_is_running} = {
+    v => 1.1,
+    summary => "Check whether Chrome is running",
+    description => <<'_',
+
+Chrome is defined as running if there are some Chrome processes that are *not*
+in 'stop' state. In other words, if Chrome has been started but is currently
+paused, we do not say that it's running. If you want to check if Chrome process
+exists, you can use `ps_chrome`.
+
+_
+    args => {
+        %App::BrowserUtils::args_common,
+        %App::BrowserUtils::argopt_quiet,
+    },
+};
+sub chrome_is_running {
+    App::BrowserUtils::_do_browser('is_running', 'chrome', @_);
+}
+
 $SPEC{terminate_chrome} = {
     v => 1.1,
     summary => "Terminate  (kill -KILL) Chrome",
