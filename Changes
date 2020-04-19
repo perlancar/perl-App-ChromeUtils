@@ -1,3 +1,8 @@
+0.006   2020-04-19  Released-By: PERLANCAR; Urgency: medium
+
+	- Add CLI: chrome-is-running.
+
+
 0.005   2020-04-19  Released-By: PERLANCAR; Urgency: medium
 
 	- Add CLI: list-chrome-profiles.
