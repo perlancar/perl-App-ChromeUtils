@@ -1,3 +1,9 @@
+0.007   2020-06-13  Released-By: PERLANCAR; Urgency: medium
+
+	- Add utilities: start-chrome, restart-chrome,
+	  chrome-has-processes.
+
+
 0.006   2020-04-19  Released-By: PERLANCAR; Urgency: medium
 
 	- Add CLI: chrome-is-running.
