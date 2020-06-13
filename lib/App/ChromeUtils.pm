@@ -53,6 +53,18 @@ sub unpause_chrome {
     App::BrowserUtils::_do_browser('unpause', 'chrome', @_);
 }
 
+$SPEC{chrome_has_processes} = {
+    v => 1.1,
+    summary => "Check whether Chrome has processes",
+    args => {
+        %App::BrowserUtils::args_common,
+        %App::BrowserUtils::argopt_quiet,
+    },
+};
+sub chrome_has_processes {
+    App::BrowserUtils::_do_browser('has_processes', 'chrome', @_);
+}
+
 $SPEC{chrome_is_paused} = {
     v => 1.1,
     summary => "Check whether Chrome is paused",
@@ -99,6 +111,36 @@ $SPEC{terminate_chrome} = {
 };
 sub terminate_chrome {
     App::BrowserUtils::_do_browser('terminate', 'chrome', @_);
+}
+
+$SPEC{restart_chrome} = {
+    v => 1.1,
+    summary => "Restart chrome",
+    args => {
+        %App::BrowserUtils::argopt_chrome_cmd,
+        %App::BrowserUtils::argopt_quiet,
+    },
+    features => {
+        dry_run => 1,
+    },
+};
+sub restart_chrome {
+    App::BrowserUtils::restart_browsers(@_, restart_chrome=>1);
+}
+
+$SPEC{start_chrome} = {
+    v => 1.1,
+    summary => "Start chrome if not already started",
+    args => {
+        %App::BrowserUtils::argopt_chrome_cmd,
+        %App::BrowserUtils::argopt_quiet,
+    },
+    features => {
+        dry_run => 1,
+    },
+};
+sub start_chrome {
+    App::BrowserUtils::start_browsers(@_, start_chrome=>1);
 }
 
 1;
