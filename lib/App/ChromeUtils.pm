@@ -53,6 +53,18 @@ sub unpause_chrome {
     App::BrowserUtils::_do_browser('unpause', 'chrome', @_);
 }
 
+$SPEC{chrome_has_processes} = {
+    v => 1.1,
+    summary => "Check whether Chrome has processes",
+    args => {
+        %App::BrowserUtils::args_common,
+        %App::BrowserUtils::argopt_quiet,
+    },
+};
+sub chrome_has_processes {
+    App::BrowserUtils::_do_browser('has_processes', 'chrome', @_);
+}
+
 $SPEC{chrome_is_paused} = {
     v => 1.1,
     summary => "Check whether Chrome is paused",
@@ -70,6 +82,26 @@ sub chrome_is_paused {
     App::BrowserUtils::_do_browser('is_paused', 'chrome', @_);
 }
 
+$SPEC{chrome_is_running} = {
+    v => 1.1,
+    summary => "Check whether Chrome is running",
+    description => <<'_',
+
+Chrome is defined as running if there are some Chrome processes that are *not*
+in 'stop' state. In other words, if Chrome has been started but is currently
+paused, we do not say that it's running. If you want to check if Chrome process
+exists, you can use `ps_chrome`.
+
+_
+    args => {
+        %App::BrowserUtils::args_common,
+        %App::BrowserUtils::argopt_quiet,
+    },
+};
+sub chrome_is_running {
+    App::BrowserUtils::_do_browser('is_running', 'chrome', @_);
+}
+
 $SPEC{terminate_chrome} = {
     v => 1.1,
     summary => "Terminate  (kill -KILL) Chrome",
@@ -79,6 +111,36 @@ $SPEC{terminate_chrome} = {
 };
 sub terminate_chrome {
     App::BrowserUtils::_do_browser('terminate', 'chrome', @_);
+}
+
+$SPEC{restart_chrome} = {
+    v => 1.1,
+    summary => "Restart chrome",
+    args => {
+        %App::BrowserUtils::argopt_chrome_cmd,
+        %App::BrowserUtils::argopt_quiet,
+    },
+    features => {
+        dry_run => 1,
+    },
+};
+sub restart_chrome {
+    App::BrowserUtils::restart_browsers(@_, restart_chrome=>1);
+}
+
+$SPEC{start_chrome} = {
+    v => 1.1,
+    summary => "Start chrome if not already started",
+    args => {
+        %App::BrowserUtils::argopt_chrome_cmd,
+        %App::BrowserUtils::argopt_quiet,
+    },
+    features => {
+        dry_run => 1,
+    },
+};
+sub start_chrome {
+    App::BrowserUtils::start_browsers(@_, start_chrome=>1);
 }
 
 1;
