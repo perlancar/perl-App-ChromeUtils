@@ -1,3 +1,8 @@
+0.005   2020-08-18  Released-By: PERLANCAR; Urgency: medium
+
+	- [ux] [cli ps-chrome] Make text output saner.
+
+
 0.004   2020-04-11  Released-By: PERLANCAR; Urgency: medium
 
         - [build] Rebuild to update Sah coerce rule modules
