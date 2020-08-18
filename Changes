@@ -1,3 +1,8 @@
+0.008   2020-08-18  Released-By: PERLANCAR; Urgency: high
+
+        - Merge releases 0.007 and 0.007.1.
+
+
 0.007.1 2020-08-18  Released-By: PERLANCAR; Urgency: medium; Status: Cancelled
 
 	- [ux] [cli ps-chrome] Make text output saner.
