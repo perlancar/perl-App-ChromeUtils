@@ -1,16 +1,16 @@
 package App::ChromeUtils;
 
-# AUTHORITY
-# DATE
-# DIST
-# VERSION
-
 use 5.010001;
 use strict 'subs', 'vars';
 use warnings;
 use Log::ger;
 
 use App::BrowserUtils ();
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
 
 our %SPEC;
 
@@ -51,6 +51,19 @@ $SPEC{unpause_chrome} = {
 };
 sub unpause_chrome {
     App::BrowserUtils::_do_browser('unpause', 'chrome', @_);
+}
+
+$SPEC{pause_and_unpause_chrome} = {
+    v => 1.1,
+    summary => "Pause and unpause Chrome alternately",
+    description => $App::BrowserUtils::desc_pause_and_unpause,
+    args => {
+        %App::BrowserUtils::args_common,
+        %App::BrowserUtils::argopt_periods,
+    },
+};
+sub pause_and_unpause_chrome {
+    App::BrowserUtils::_do_browser('pause_and_unpause', 'chrome', @_);
 }
 
 $SPEC{chrome_has_processes} = {
