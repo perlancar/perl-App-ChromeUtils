@@ -173,6 +173,8 @@ This distribution includes several utilities related to Google Chrome browser:
 Some other CLI utilities related to Chrome: L<dump-chrome-history> (from
 L<App::DumpChromeHistory>).
 
+L<App::BraveUtils>
+
 L<App::FirefoxUtils>
 
 L<App::OperaUtils>
